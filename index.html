@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <!--Statement IF-->
+    <h2>JavaScript IF Statement</h2>
+
+    <script>
+      var hari = new Date().getDay(); // untuk mendapatkan hari dalam bentuk angka, angka 0 menandakan hari Minggu, angka 1 menandakan hari Senin. Begitu seterusnya sampai angka 6 menandakan hari Sabtu
+
+      if (hari < 6 || hari > 0) {
+        document.write("Hari ini adalah Hari Kerja");
+      } else {
+        document.write("Hari ini adalah Akhir Pekan");
+      }
+    </script>
+
+    <!--Nested IF-->
+    <h2>JavaScript Nested IF Statement</h2>
+
+    <script>
+      var hari = new Date().getDay();
+      var jam = new Date().getHours(); // untuk mendapatkan waktu berdasarkan angka (0-23)
+
+      if (hari < 6 || hari > 0) {
+        // Jika hari adalah hari senin-jumat
+        document.write("Hari kerja \n");
+        if (jam > 15 || jam < 18) {
+          //Jika jam pembelajaran mulai dari jam 3 sampai jam 6 sore
+          document.write("ada jam pembelajaran");
+        } else {
+          document.write("tidak ada jam pembelajaran");
+        }
+      } else {
+        document.write("Hari Libur");
+      }
+    </script>
+
+    <!--Switch Case Statement-->
+    <h2>JavaScript Switch Case Statement</h2>
+
+    <script>
+      var hari = new Date().getDay();
+      var jenisHari;
+
+      switch (hari) {
+        case 0:
+        case 6:
+          jenisHari = "hari libur";
+          break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          jenisHari = "hari kerja";
+          break;
+      }
+
+      document.write("Hari ini adalah " + jenisHari + ".");
+    </script>
+
+    <!--For Statement-->
+    <h2>JavaScript For Statement</h2>
+
+    <p id="latihan"></p>
+
+    <script>
+      const course = ["HTML", "CSS", "JavaScript", "Bootstrap", "SQL"];
+
+      let teks = "";
+      for (let i = 0; i < course.length; i++) {
+        teks += course[i] + "<br>";
+      }
+
+      document.getElementById("latihan").innerHTML = teks;
+    </script>
+
+    <!--While Statement-->
+    <h2>JavaScript While Statement</h2>
+
+    <script>
+      var minggu = 1; // memulai dari minggu pertama
+
+      while (minggu <= 7) {
+        document.write("Ini adalah minggu ke-" + minggu + "<br>");
+        minggu++;
+      }
+    </script>
+
+    <!-- Do While Statement-->
+    <h2>JavaScript Do While Statement</h2>
+
+    <script>
+      var minggu = 1; // memulai dari minggu pertama
+
+      do {
+        document.write("Ini adalah minggu ke-" + minggu + "<br>");
+        minggu++;
+      } while (minggu <= 7);
+    </script>
+
+    <!-- Function-->
+    <h2>JavaScript Function</h2>
+
+    <script>
+      // array untuk menyimpan nama-nama hari berdasarkan urutan (0 adalah Minggu, 1 adalah Senin, dan seterusnya.)
+      var namaHari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+
+      // fungsi untuk mendapatkan nama hari berdasarkan angka hari (0 adalah Minggu, 1 adalah Senin, dan seterusnya.)
+      function getNamaHari(angkaHari) {
+        if (angkaHari >= 0 && angkaHari <= 6) {
+          return namaHari[angkaHari];
+        } else {
+          return "Hari tidak valid";
+        }
+      }
+
+      var hariSekarang = new Date().getDay(); // untuk mendapatkan hari dalam bentuk angka.
+
+      var namaHariSekarang = getNamaHari(hariSekarang); // untuk memanggil fungsi dengan angka hari.
+
+      document.write("Hari ini adalah " + namaHariSekarang + ".");
+    </script>
+  </body>
+</html>
